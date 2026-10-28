@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: medrella-hospital
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_VERSION
+        value: 22
+      - key: DATA_DIR
+        value: /var/data
+    disk:
+      name: medrella-data
+      mountPath: /var/data
+      sizeGB: 1
